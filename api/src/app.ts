@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Post = require("./models/postModal");
 
 const app: Application = express();
-const postsRoute = require("./routes/postRoute");
+const postRoute = require("./routes/postRoute");
 const authRoute = require("./routes/authRoute");
 
 mongoose.connect("mongodb+srv://sandaru:sandaru123@cluster0.z1bfc.mongodb.net/?retryWrites=true&w=majority")
@@ -34,7 +34,7 @@ app.use((req: Request, res: Response, next) => {
 });
 
 
-app.use("/api/posts", postsRoute);
+app.use("/api/posts", postRoute);
 app.use("/api/user", authRoute);
 
 module.exports = app;
